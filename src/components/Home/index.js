@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Particles from "react-particles-js";
 import Classes from "./Home.module.css";
 import Message from "../Message";
-import Particles from "react-particles-js";
-// import { ReactComponent as CodeSvg } from "../svgs/coding.svg";
+import { ReactComponent as Loader } from "./svgs/ripple.svg";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    fetch(`${process.env.REACT_APP_API_URL}/formResponses1`)
+      .then(response => response.json())
+      .then(data => {
+        setData(data.formResponses1);
+        setLoading(false);
+      })
+      .catch(error => {
+        setLoading(false);
+        console.error(error);
+      });
+  }, []);
   return (
     <div className={Classes.container}>
       <div className={Classes.background}>
@@ -15,54 +30,20 @@ const Home = () => {
         Here's what people have to say about you!
       </p>
       <section className={Classes.card}>
-        <Message
-          name="Akinnumi Aguda"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss. "
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-        thanksss."
-        />
-        <Message
-          name="Akin"
-          rel="Ekene's Friend"
-          message="Thanks for helping my life and career man you're a real life saver
-      thanksss."
-        />
+        {!loading ? (
+          data.map(item => (
+            <Message
+              key={item.id}
+              name={item.yourName}
+              rel={item["yourRelationshipWithEkene (eGEkene'sFriend)"]}
+              message={item.somethingNiceAboutHim}
+            />
+          ))
+        ) : (
+          <div className={Classes.loader}>
+            <Loader />
+          </div>
+        )}
       </section>
     </div>
   );
