@@ -1,0 +1,77 @@
+@font-face {
+  font-family: "butterHoney";
+  src: url("/fonts/butterHoney.ttf");
+}
+body {
+  -ms-overflow-style: none;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.container {
+  height: 100vh;
+  background-color: rgba(14, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(/images/ashinze.jpeg);
+  background-position: 30% 0%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+.intro,
+.caption {
+  font-family: butterHoney;
+  color: white;
+}
+.intro {
+  font-size: 55px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.caption {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 0 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.card {
+  max-height: 80vh;
+  max-width: 90vw;
+  height: 80vh;
+  width: 750px;
+  border-radius: 50px;
+  box-shadow: 5px 5px 15px purple, -5px -5px 15px purple;
+  background-color: white;
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: scroll;
+  & > div {
+    margin: 5px 0px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  :nth-child(1) {
+    margin-top: 30vh;
+    margin-left: 3vw;
+  }
+}
+.svg {
+  height: 30px;
+  width: 30px;
+}
