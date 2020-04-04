@@ -25,10 +25,8 @@ const Home = () => {
       <div className={Classes.background}>
         <Particles className={Classes.particles} />
       </div>
-      <h1 className={Classes.intro}>Hello Ekene</h1>
-      <p className={Classes.caption}>
-        Here's what people have to say about you!
-      </p>
+      <h1 className={Classes.intro}>Happy Birthday Ekene!</h1>
+      <p className={Classes.caption}>Here's what we have to say!</p>
       <section className={Classes.card}>
         {!loading ? (
           data.map(item => (

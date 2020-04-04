@@ -34,8 +34,7 @@ body ::-webkit-scrollbar {
   background-blend-mode: overlay;
 }
 
-.intro,
-.caption {
+.intro {
   font-family: butterHoney;
   color: white;
 }
@@ -44,17 +43,19 @@ body ::-webkit-scrollbar {
   font-size: 55px;
   margin-bottom: 10px;
   margin-top: 5px;
+  text-align: center;
 }
 
 .caption {
   margin-top: 0;
   margin-bottom: 15px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   padding: 0 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
+  color: white;
 }
 
 .card {

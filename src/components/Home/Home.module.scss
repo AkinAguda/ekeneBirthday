@@ -22,8 +22,7 @@ body {
   background-size: cover;
   background-blend-mode: overlay;
 }
-.intro,
-.caption {
+.intro {
   font-family: butterHoney;
   color: white;
 }
@@ -31,15 +30,17 @@ body {
   font-size: 55px;
   margin-bottom: 10px;
   margin-top: 5px;
+  text-align: center;
 }
 .caption {
   margin-top: 0;
   margin-bottom: 15px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   padding: 0 10px;
   box-sizing: border-box;
   text-align: center;
+  color: white;
 }
 .card {
   max-height: 80vh;
